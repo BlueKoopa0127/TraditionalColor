@@ -20,7 +20,7 @@ public class TraditionalColor
 
     public string GetColorName()
     {
-        return "";
+        return colorName;
     }
 
     public EColorCategory GetColorCategory()
