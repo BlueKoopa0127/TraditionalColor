@@ -25,16 +25,16 @@ public class TraditionalColor
 
     public EColorCategory GetColorCategory()
     {
-        return EColorCategory.red;
+        return colorCategory;
     }
 
     public string GetColorCode()
     {
-        return "";
+        return colorCode;
     }
 
     public string GetDerivation()
     {
-        return "";
+        return derivation;
     }
 }
