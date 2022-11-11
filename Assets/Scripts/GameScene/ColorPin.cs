@@ -11,5 +11,10 @@ public class ColorPin
     if(id < 0){
       // エラーを投げたい気がする
     }
+    /*
+    if(cc が None){
+      // エラーを投げたい気がする
+    }
+    */
   }
 }
