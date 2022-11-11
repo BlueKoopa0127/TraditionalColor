@@ -6,6 +6,7 @@ public class ColorCategory
 {
     public enum EColorCategory
     {
+        // Noneが欲しいかも
         red, brown, green
     }
 }
