@@ -21,6 +21,7 @@ public class JudgeColor
     for (int i = 0; i < userPredict.Count; i++)
     {
       // 予想した色に対応した答えの場所
+      // TODO 複数のプロパティ？持ってるListって完全一致で探すのかどうか
       int ansId = answer.FindIndex(n => n == userPredict[i]);
 
       if (ansId < 0)
