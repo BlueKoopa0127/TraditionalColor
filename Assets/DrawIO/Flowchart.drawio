@@ -1,0 +1,200 @@
+<mxfile host="65bd71144e" pages="4">
+    <diagram id="C5RBs43oDa-KdzZeNtuy" name="全体の流れ">
+        <mxGraphModel dx="525" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-0"/>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-2" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="foM-yMnAFRGQ8XtT23Gf-1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="160" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="開始" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="160" y="30" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="WIyWlLk6GJQsqaUBKTNV-11" value="終了" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="160" y="590" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="foM-yMnAFRGQ8XtT23Gf-1" target="foM-yMnAFRGQ8XtT23Gf-2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-1" value="色のカテゴリの選択" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="145" y="110" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="foM-yMnAFRGQ8XtT23Gf-2" target="foM-yMnAFRGQ8XtT23Gf-8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-2" value="カテゴリの中から使用する色の選択" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="140" y="190" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="foM-yMnAFRGQ8XtT23Gf-8" target="foM-yMnAFRGQ8XtT23Gf-13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-8" value="使用する色の中から答えの生成" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="160" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="foM-yMnAFRGQ8XtT23Gf-13" target="foM-yMnAFRGQ8XtT23Gf-27" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-13" value="ユーザーが予想する" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="160" y="380" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-21" value="" style="group" parent="WIyWlLk6GJQsqaUBKTNV-1" connectable="0" vertex="1">
+                    <mxGeometry x="210" y="560" width="85" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-20" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="foM-yMnAFRGQ8XtT23Gf-21" vertex="1">
+                    <mxGeometry width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-26" value="" style="group" parent="WIyWlLk6GJQsqaUBKTNV-1" connectable="0" vertex="1">
+                    <mxGeometry x="100" y="340" width="60" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="foM-yMnAFRGQ8XtT23Gf-26" source="foM-yMnAFRGQ8XtT23Gf-12" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="10" y="150" as="sourcePoint"/>
+                        <mxPoint x="120" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="10" y="195"/>
+                            <mxPoint x="10"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="foM-yMnAFRGQ8XtT23Gf-12" target="WIyWlLk6GJQsqaUBKTNV-11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-12" value="正誤判定の結果" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="145" y="510" width="150" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-25" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="100" y="530" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="foM-yMnAFRGQ8XtT23Gf-27" target="foM-yMnAFRGQ8XtT23Gf-12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="foM-yMnAFRGQ8XtT23Gf-27" value="正誤判定" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                    <mxGeometry x="160" y="440" width="120" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="wO2r4j-iICIY-cdr-_WW" name="正誤判定">
+        <mxGraphModel dx="525" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="otbUny3mYolSZnRD1PF6-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="otbUny3mYolSZnRD1PF6-1" target="otbUny3mYolSZnRD1PF6-4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-1" value="正誤判定の関数&lt;br&gt;引数にユーザーの予想" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="30" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="otbUny3mYolSZnRD1PF6-4" target="otbUny3mYolSZnRD1PF6-6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-4" value="予想と結果の比較" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="170" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-5" value="比較結果を返す" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="300" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-6" value="終了" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="390" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="otbUny3mYolSZnRD1PF6-11" target="otbUny3mYolSZnRD1PF6-15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-11" value="予想と結果の比較" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="295" y="60" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="otbUny3mYolSZnRD1PF6-15" target="otbUny3mYolSZnRD1PF6-20" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-15" value="予想の個数分ループ&lt;br&gt;p := pin" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.loop_limit;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="132" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="otbUny3mYolSZnRD1PF6-20" target="otbUny3mYolSZnRD1PF6-22" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-20" value="pの答えの中の位置を取得" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=process;whiteSpace=wrap;rounded=1;size=0.14;arcSize=6;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="210" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="otbUny3mYolSZnRD1PF6-22" target="otbUny3mYolSZnRD1PF6-24" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-22" value="pの位置とその答えの位置に応じた判断&lt;br&gt;引数，予想の位置，答えの位置" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=process;whiteSpace=wrap;rounded=1;size=0.14;arcSize=6;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="280" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="otbUny3mYolSZnRD1PF6-24" target="TPHeYgPPfO0wQ1XRBek5-1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="otbUny3mYolSZnRD1PF6-24" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.loop_limit;whiteSpace=wrap;rotation=-180;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="370" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TPHeYgPPfO0wQ1XRBek5-1" target="TPHeYgPPfO0wQ1XRBek5-3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-1" value="結果を返す" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="430" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-3" value="終了" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="500" width="100" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TPHeYgPPfO0wQ1XRBek5-6" target="TPHeYgPPfO0wQ1XRBek5-8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-6" value="pの位置とその答えの位置に応じた判断&lt;br&gt;引数，予想の位置，答えの位置" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=process;whiteSpace=wrap;rounded=1;size=0.14;arcSize=6;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="40" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TPHeYgPPfO0wQ1XRBek5-8" target="TPHeYgPPfO0wQ1XRBek5-20" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-8" value="答えの位置が存在しない" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="150" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-9" value="間違ってると判断&lt;br&gt;終了" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="154" width="100" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TPHeYgPPfO0wQ1XRBek5-11" target="TPHeYgPPfO0wQ1XRBek5-9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-11" value="yes" style="text;html=1;align=left;verticalAlign=bottom;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelPosition=right;verticalLabelPosition=top;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="165" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TPHeYgPPfO0wQ1XRBek5-20" target="TPHeYgPPfO0wQ1XRBek5-26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-20" value="答えの位置と&lt;br&gt;予想の位置が同じ" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="260" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-22" value="Hitと判断&lt;br&gt;終了" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="272.5" width="100" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TPHeYgPPfO0wQ1XRBek5-24" target="TPHeYgPPfO0wQ1XRBek5-22" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-24" value="yes" style="text;html=1;align=left;verticalAlign=bottom;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelPosition=right;verticalLabelPosition=top;" parent="1" vertex="1">
+                    <mxGeometry x="625" y="275" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPHeYgPPfO0wQ1XRBek5-26" value="blowと判断&lt;br&gt;終了" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="360" width="100" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="blX4Rp-9Hr1ToomBg6qz" name="答えの生成">
+        <mxGraphModel dx="525" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="1nvb6j9_C-oBHbPwn4kS" name="カテゴリ選択">
+        <mxGraphModel dx="525" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
