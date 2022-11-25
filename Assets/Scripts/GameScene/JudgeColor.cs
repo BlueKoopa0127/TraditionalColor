@@ -17,24 +17,24 @@ public class JudgeColor
 
   public List<string> checkHitAndBlow(List<TraditionalColor> userPredict){
     // TODO 判断結果のリストの型，新しくenumのやつで作ってもいいかも
-    List<string> result;
-    for (int i = 0; i < userPredict.Length; i++)
+    List<string> result = new List<string>();
+    for (int i = 0; i < userPredict.Count; i++)
     {
       // 予想した色に対応した答えの場所
       int ansId = answer.FindIndex(n => n == userPredict[i]);
 
       if (ansId < 0)
       {
-        result.add("Miss");
+        result.Add("Miss");
         continue;
       }
 
       if (ansId == i){
-        result.add("Hit");
+        result.Add("Hit");
         continue;
       }
 
-      result.add("Blow");
+      result.Add("Blow");
     }
 
     return result;
