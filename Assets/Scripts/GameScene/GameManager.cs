@@ -5,6 +5,10 @@ using static ColorCategory;
 
 public class GameManager : MonoBehaviour
 {
+    // Q: こいつらグローバルでいいのか？
+    private List<TraditionalColor> userPredict = new List<TraditionalColor>();
+    private JudgeColor judge;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +19,35 @@ public class GameManager : MonoBehaviour
         //カテゴリ内から色を10色ランダムに選択する
         var choiceColor = category.RandomChoice(10);
         //その中から答えを生成する
-        //todo choiceColorの上から4つを選ぶ
-        // todo colorListをランダムシャッフルしてn番目までを返す
-        //todo choiceColorをランダムに入れ替える
+        var answer = makeAnswer(choiceColor, 4);
+        // Q: makeAnserを直接入れてもいいのか？
+        judge = new JudgeColor(answer);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //ユーザーが答えを当てる
+        
+        // もしユーザーが予想の確定をしていないなら何もしない
+        // continue? return?
+
+        // ユーザーの入力の受け取り
+        // TODO: userPredict = getUserPredict()的なやつ
+        userPredict = new List<TraditionalColor>();
+
+        // 正誤判定を行う
+        // Judge.checkHitandBlow(入力);
+        // 結果を返す
+        var result = judge.checkHitAndBlow(userPredict);
+
+        // UIで表示
+        // 合っていたら終了
+        // Finish();
+    }
+
+    private List<TraditionalColor> makeAnswer(List<TraditionalColor> choiceColor, int answerLength)
+    {
         for(int i = choiceColor.Count -1;i>0;i--){
             //乱数生成を使ってランダムに取り出す値を決める 
             int r = UnityEngine.Random.Range(0,i+1);
@@ -26,22 +56,7 @@ public class GameManager : MonoBehaviour
             choiceColor[i] = choiceColor[r];
             choiceColor[r] = tmp;
         }
-        
-        var answerList = choiceColor.GetRange(0,4);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //ユーザーが答えを当てる
-        //正誤判定を行う
-        //ユーザーからアクションがあれば
-        //Judge(入力);
-
-        //結果を返す
-        //UIで表示
-
-        //合っていたら終了
-        //Finish();
+        return choiceColor.GetRange(0,answerLength);
     }
 }
