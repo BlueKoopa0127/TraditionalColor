@@ -37,4 +37,9 @@ public class TraditionalColor
     {
         return derivation;
     }
+
+    public bool Equals(TraditionalColor c)
+    {
+        return GetColorCode().Equals(c.GetColorCode());
+    }
 }
