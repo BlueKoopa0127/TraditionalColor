@@ -18,12 +18,6 @@ public class JudgeColor
   public List<int> checkHitAndBlow(List<TraditionalColor> userPredict){
     // [0]HIT, [1]BLOW
     List<int> result = new List<int>(2){0,0};
-    Debug.Log("check hit and blow");
-    foreach (TraditionalColor item in answer)
-    {
-      Debug.Log(item);
-      Debug.Log(item.GetColorCategory());
-    }
     for (int i = 0; i < userPredict.Count; i++)
     {
       Debug.Log("start " + i + ":: " + userPredict[i]);
@@ -37,14 +31,12 @@ public class JudgeColor
       }
 
       // HIT
-      // Debug.Log("hit?");
       if (ansId == i){
         result[0] += 1;
         continue;
       }
 
       // BLOW
-      // Debug.Log("BLOW");
       result[1] += 1;
     }
 
