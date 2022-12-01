@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         // 正誤判定を行う
         // Judge.checkHitandBlow(入力);
         // 結果を返す
-        var result = judge.checkHitAndBlow(userPredict);
+        var result = judge.CheckHitAndBlow(userPredict);
 
         // UIで表示
         // 合っていたら終了

@@ -15,7 +15,7 @@ public class JudgeColor
     this.answer = answer;
   }
 
-  public List<int> checkHitAndBlow(List<TraditionalColor> userPredict){
+  public List<int> CheckHitAndBlow(List<TraditionalColor> userPredict){
     // [0]HIT, [1]BLOW
     List<int> result = new List<int>(2){0,0};
     for (int i = 0; i < userPredict.Count; i++)
