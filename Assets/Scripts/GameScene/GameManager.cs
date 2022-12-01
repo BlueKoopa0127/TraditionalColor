@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         //カテゴリ内から色を10色ランダムに選択する
         var choiceColor = category.RandomChoice(10);
         //その中から答えを生成する
-        var answer = makeAnswer(choiceColor, 4);
+        var answer = MakeAnswer(choiceColor, 4);
         // Q: makeAnserを直接入れてもいいのか？
         judge = new JudgeColor(answer);
     }
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         // Finish();
     }
 
-    private List<TraditionalColor> makeAnswer(List<TraditionalColor> choiceColor, int answerLength)
+    private List<TraditionalColor> MakeAnswer(List<TraditionalColor> choiceColor, int answerLength)
     {
         for(int i = choiceColor.Count -1;i>0;i--){
             //乱数生成を使ってランダムに取り出す値を決める 
