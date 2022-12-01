@@ -10,7 +10,7 @@ public class ColorCategory
         red, brown, green
     }
 
-    private List<TraditionalColor> colorList = new List<TraditionalColor>();
+    private List<TraditionalColor> colorList;
 
     public ColorCategory(EColorCategory e) {
         //todo eによってファイルを読んでそのカテゴリのTraditionalColorのリストを取得してcolorListに格納する。
@@ -25,6 +25,8 @@ public class ColorCategory
         var zakuro = new TraditionalColor("柘榴色", EColorCategory.red, "#C92E36", "ざくろいろ");
         var shinshu = new TraditionalColor("真朱", EColorCategory.red, "#D9341D", "しんしゅ");
         var sangoshu = new TraditionalColor("珊瑚珠色", EColorCategory.red, "#EF454A", "さんごしゅいろ");
+
+        colorList = new List<TraditionalColor>(){carmine, benitou, ginshu, kobai, beniaka, sinku, enji, zakuro, sinku, sangoshu};
     }
 
 
