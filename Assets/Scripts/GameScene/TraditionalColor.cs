@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static ColorCategory;
+using TMPro;
 
 public class TraditionalColor : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class TraditionalColor : MonoBehaviour
     private string colorCode;
     [SerializeField]
     private string derivation;
+
+    [SerializeField]
+    private TextMeshProUGUI tmp;
 
     public void Awake()
     {
@@ -43,6 +47,10 @@ public class TraditionalColor : MonoBehaviour
         Color b = new Color(0, 0, 0);
         ColorUtility.TryParseHtmlString(colorCode, out b);
         a.color = b;
+        if (tmp != null)
+        {
+            tmp.text = colorName;
+        }
     }
 
     public void White()
