@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static ColorCategory;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject selectColor, selectedColor, answerColor;
+
     // Q: こいつらグローバルでいいのか？
     private List<TraditionalColor> userPredict = new List<TraditionalColor>();
     private JudgeColor judge;
@@ -12,6 +16,8 @@ public class GameManager : MonoBehaviour
     private Transform select, selected, answer;
 
     private int count = 0;
+    private int rawCount = 0;
+    private int numberOfAns = 3;
 
     public void Select(TraditionalColor t)
     {
@@ -28,23 +34,28 @@ public class GameManager : MonoBehaviour
 
         //カテゴリ内から色を10色ランダムに選択する
         var choiceColor = category.RandomChoice(10);
-        for (int i = 0; i < 10; i++)
+        foreach (var v in choiceColor)
         {
-            select.GetChild(i).GetComponent<TraditionalColor>().Change(choiceColor[i]);
+            var c = Instantiate(selectColor).GetComponent<TraditionalColor>();
+            c.transform.parent = select;
+            c.Change(v);
         }
 
         // 選択された色のインスタンスの登録
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < numberOfAns; i++)
         {
-            var t = selected.GetChild(i).GetComponent<TraditionalColor>();
+            var t = Instantiate(selectedColor).GetComponent<TraditionalColor>();
+            t.transform.parent = selected;
             userPredict.Add(t);
         }
 
         //その中から答えを生成する
-        var ans = makeAnswer(choiceColor, 4);
-        for (int i = 0; i < 4; i++)
+        var ans = makeAnswer(choiceColor, numberOfAns);
+        foreach (var a in ans)
         {
-            answer.GetChild(i).GetComponent<TraditionalColor>().Change(ans[i]);
+            var t = Instantiate(answerColor).GetComponent<TraditionalColor>();
+            t.transform.parent = answer;
+            t.Change(a);
         }
 
         // Q: makeAnserを直接入れてもいいのか？
@@ -66,14 +77,15 @@ public class GameManager : MonoBehaviour
         // 正誤判定を行う
         // Judge.checkHitandBlow(入力);
         // 結果を返す
-        if (count == 4)
+        if (count == numberOfAns)
         {
             var result = judge.checkHitAndBlow(userPredict);
 
             Debug.Log("Hit : " + result[0] + " Brow : " + result[1]);
 
             count = 0;
-            for (int i = 0; i < 4; i++)
+            rawCount++;
+            for (int i = 0; i < numberOfAns; i++)
             {
                 selected.GetChild(i).GetComponent<TraditionalColor>().White();
             }
@@ -83,7 +95,7 @@ public class GameManager : MonoBehaviour
         // Finish();
     }
 
-    private List<TraditionalColor> makeAnswer(List<TraditionalColor> choiceColor, int answerLength)
+    private List<ColorData> makeAnswer(List<ColorData> choiceColor, int answerLength)
     {
         for (int i = choiceColor.Count - 1; i > 0; i--)
         {

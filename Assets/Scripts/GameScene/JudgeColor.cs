@@ -9,9 +9,9 @@ using UnityEngine;
  */
 public class JudgeColor
 {
-    private List<TraditionalColor> answer;
+    private List<ColorData> answer;
 
-    public JudgeColor(List<TraditionalColor> answer)
+    public JudgeColor(List<ColorData> answer)
     {
         this.answer = answer;
     }
@@ -24,7 +24,7 @@ public class JudgeColor
         {
             //Debug.Log("start " + i + ":: " + userPredict[i]);
             // 予想した色に対応した答えの場所      
-            int ansId = answer.FindIndex(item => item.Equals(userPredict[i]));
+            int ansId = answer.FindIndex(item => item.Equals(userPredict[i].GetColorData()));
 
             //Debug.Log("miss?");
             if (ansId < 0)

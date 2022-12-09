@@ -7,37 +7,24 @@ using TMPro;
 
 public class TraditionalColor : MonoBehaviour
 {
-    [SerializeField]
-    private string colorName;
-    [SerializeField]
-    private EColorCategory colorCategory;
-    [SerializeField]
-    private string colorCode;
-    [SerializeField]
-    private string derivation;
+    private ColorData colorData;
 
     [SerializeField]
     private TextMeshProUGUI tmp;
 
     public void Awake()
     {
-        Init();
+        White();
     }
 
-    public TraditionalColor(string cn = "赤", EColorCategory cc = EColorCategory.red, string cCode = "#ff0000", string d = "")
+    public void Change(TraditionalColor c)
     {
-        colorName = cn;
-        colorCategory = cc;
-        colorCode = cCode;
-        derivation = d;
+        Change(c.GetColorData());
     }
 
-    public void Change(TraditionalColor t)
+    public void Change(ColorData c)
     {
-        colorName = t.GetColorName();
-        colorCategory = t.GetColorCategory();
-        colorCode = t.GetColorCode();
-        derivation = t.GetDerivation();
+        colorData = c;
         Init();
     }
 
@@ -45,41 +32,43 @@ public class TraditionalColor : MonoBehaviour
     {
         var a = GetComponent<Image>();
         Color b = new Color(0, 0, 0);
-        ColorUtility.TryParseHtmlString(colorCode, out b);
+        ColorUtility.TryParseHtmlString(colorData.colorCode, out b);
         a.color = b;
         if (tmp != null)
         {
-            tmp.text = colorName;
+            tmp.text = colorData.colorName;
         }
     }
 
     public void White()
     {
-        colorName = "白";
-        colorCategory = EColorCategory.red;
-        colorCode = "#FFFFFF";
-        derivation = "しろ";
+        colorData = new ColorData("白", EColorCategory.red, "#FFFFFF", "しろ");
         Init();
+    }
+
+    public ColorData GetColorData()
+    {
+        return colorData;
     }
 
     public string GetColorName()
     {
-        return colorName;
+        return colorData.colorName;
     }
 
     public EColorCategory GetColorCategory()
     {
-        return colorCategory;
+        return colorData.colorCategory;
     }
 
     public string GetColorCode()
     {
-        return colorCode;
+        return colorData.colorCode;
     }
 
     public string GetDerivation()
     {
-        return derivation;
+        return colorData.derivation;
     }
 
     public bool Equals(TraditionalColor c)
@@ -89,7 +78,7 @@ public class TraditionalColor : MonoBehaviour
 
     public void Print()
     {
-        Debug.Log(colorName);
+        Debug.Log(colorData.colorName);
     }
 
     public void Select()
