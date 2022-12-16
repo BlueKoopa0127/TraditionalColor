@@ -13,11 +13,11 @@ public class GameManager : MonoBehaviour
     private List<TraditionalColor> userPredict = new List<TraditionalColor>();
     private JudgeColor judge;
     [SerializeField]
-    private Transform select, selected, answer;
+    private Transform select, selected, answer, history;
 
     private int count = 0;
     private int rawCount = 0;
-    private int numberOfAns = 3;
+    private const int numberOfAns = 3, numberOfHistory = 4;
 
     public void Select(TraditionalColor t)
     {
@@ -56,6 +56,16 @@ public class GameManager : MonoBehaviour
             var t = Instantiate(answerColor).GetComponent<TraditionalColor>();
             t.transform.parent = answer;
             t.Change(a);
+        }
+
+        for (int i = 0; i < numberOfHistory; i++)
+        {
+            var a = history.GetChild(i);
+            for (int j = 0; j < numberOfAns; j++)
+            {
+                var t = Instantiate(selected);
+                t.parent = a;
+            }
         }
 
         // Q: makeAnserを直接入れてもいいのか？
