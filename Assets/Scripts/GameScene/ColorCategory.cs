@@ -27,7 +27,7 @@ public class ColorCategory
         var shinshu = new ColorData("真朱", EColorCategory.red, "#D9341D", "しんしゅ");
         var sangoshu = new ColorData("珊瑚珠色", EColorCategory.red, "#EF454A", "さんごしゅいろ");
 
-        colorList = new List<ColorData>() { carmine, benitou, ginshu, kobai, beniaka, sinku, enji, zakuro, sinku, sangoshu };
+        colorList = new List<ColorData>() { carmine, benitou, ginshu, kobai, beniaka, sinku, enji, zakuro, shinshu, sangoshu };
     }
 
 
