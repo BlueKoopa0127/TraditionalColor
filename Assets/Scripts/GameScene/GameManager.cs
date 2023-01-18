@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static ColorCategory;
 using System.Linq;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +15,12 @@ public class GameManager : MonoBehaviour
     private List<TraditionalColor> userPredict = new List<TraditionalColor>();
     private JudgeColor judge;
     [SerializeField]
-    private Transform select, selected, answer, history;
+    private Transform select, selected, answer, history, end;
 
     private int count = 0;
     private int rawCount = 0;
     private const int numberOfAns = 3, numberOfHistory = 4;
+    private int histCount = 0;
 
     public void Select(TraditionalColor t)
     {
@@ -61,9 +64,10 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numberOfHistory; i++)
         {
             var a = history.GetChild(i);
+            Debug.Log(a.GetComponent<RectTransform>().rect);
             for (int j = 0; j < numberOfAns; j++)
             {
-                var t = Instantiate(selected);
+                var t = Instantiate(selectedColor).transform;
                 t.parent = a;
             }
         }
@@ -89,15 +93,35 @@ public class GameManager : MonoBehaviour
         // 結果を返す
         if (count == numberOfAns)
         {
+
+
             var result = judge.checkHitAndBlow(userPredict);
 
             Debug.Log("Hit : " + result[0] + " Brow : " + result[1]);
 
             count = 0;
             rawCount++;
+
+
+
+            var hist = history.GetChild(histCount);
             for (int i = 0; i < numberOfAns; i++)
             {
-                selected.GetChild(i).GetComponent<TraditionalColor>().White();
+                var se = selected.GetChild(i).GetComponent<TraditionalColor>();
+                hist.GetChild(i).GetComponent<TraditionalColor>().Change(se.GetColorData());
+                se.White();
+            }
+            histCount++;
+
+            //ゲーム終了
+            if (histCount == numberOfHistory)
+            {
+                for (int i = 0; i < numberOfAns; i++)
+                {
+                    answer.GetChild(i).GetComponent<Image>().enabled = true;
+                }
+                end.gameObject.SetActive(true);
+                //this.gameObject.SetActive(false);
             }
         }
         // UIで表示
