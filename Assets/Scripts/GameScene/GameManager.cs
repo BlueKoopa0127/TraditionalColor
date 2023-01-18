@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     // Q: こいつらグローバルでいいのか？
     private List<TraditionalColor> userPredict = new List<TraditionalColor>();
+
+    private List<List<TraditionalColor>> userHistory = new List<TraditionalColor>();
     private JudgeColor judge;
     [SerializeField]
     private Transform select, selected, answer, history, end;
@@ -98,6 +100,8 @@ public class GameManager : MonoBehaviour
             var result = judge.checkHitAndBlow(userPredict);
 
             Debug.Log("Hit : " + result[0] + " Brow : " + result[1]);
+
+            userHistory.Add(userPredict);
 
             count = 0;
             rawCount++;
