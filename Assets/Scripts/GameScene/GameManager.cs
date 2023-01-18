@@ -5,6 +5,7 @@ using static ColorCategory;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -109,6 +110,8 @@ public class GameManager : MonoBehaviour
 
 
             var hist = history.GetChild(histCount);
+            var histText = history.GetChild(histCount + 4).GetComponent<TextMeshProUGUI>();
+            histText.text = result[0].ToString() + "H" + result[1].ToString() + "B";
             for (int i = 0; i < numberOfAns; i++)
             {
                 var se = selected.GetChild(i).GetComponent<TraditionalColor>();
