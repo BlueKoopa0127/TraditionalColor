@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     // Q: こいつらグローバルでいいのか？
     private List<TraditionalColor> userPredict = new List<TraditionalColor>();
 
-    private List<List<TraditionalColor>> userHistory = new List<TraditionalColor>();
+    private List<List<TraditionalColor>> userHistory = new List<List<TraditionalColor>>();
     private JudgeColor judge;
     [SerializeField]
     private Transform select, selected, answer, history, end;
