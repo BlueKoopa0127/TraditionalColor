@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     // Q: こいつらグローバルでいいのか？
     private List<TraditionalColor> userPredict = new List<TraditionalColor>();
+    private List<ColorData> selectedColors = new List<ColorData>();
 
     private List<List<TraditionalColor>> userHistory = new List<List<TraditionalColor>>();
     private JudgeColor judge;
@@ -27,6 +28,25 @@ public class GameManager : MonoBehaviour
 
     public void Select(TraditionalColor t)
     {
+        if (selectedColors.Count != 0)
+        {
+            bool multiple = false;
+            foreach (var color in selectedColors)
+            {
+                if (color.Equals(t.GetColorData()))
+                {
+                    multiple = true;
+                    break;
+                }
+            }
+
+            if (multiple)
+            {
+                return;
+            }
+        }
+
+        selectedColors.Add(t.GetColorData());
         selected.GetChild(count).GetComponent<TraditionalColor>().Change(t);
         count++;
     }
@@ -65,6 +85,7 @@ public class GameManager : MonoBehaviour
         rawCount = 0;
         histCount = 0;
         userPredict = new List<TraditionalColor>();
+        selectedColors = new List<ColorData>();
 
         //色のカテゴリを前のシーンから受け取る
         var category = new ColorCategory(e);
@@ -126,8 +147,6 @@ public class GameManager : MonoBehaviour
         // 結果を返す
         if (count == numberOfAns)
         {
-
-
             var result = judge.checkHitAndBlow(userPredict);
 
             Debug.Log("Hit : " + result[0] + " Brow : " + result[1]);
@@ -137,6 +156,7 @@ public class GameManager : MonoBehaviour
             count = 0;
             rawCount++;
 
+            selectedColors = new List<ColorData>();
 
 
             var hist = history.GetChild(histCount * 2 + 1);
