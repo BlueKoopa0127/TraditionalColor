@@ -53,9 +53,14 @@ public class ColorCategory
                 continue;
             }
 
-            string colorName = color[1].Replace("\"", "").Split("（")[0];
+            string[] colorNames = color[1].Replace("\"", "").Split("（");
+            string colorName = colorNames[0];
             string colorCode = color[3];
+            // string colorRubi = colorNames[1].Substring(0, colorNames[1].Length - 1);
+            // 説明文の冒頭に，「名前（ふりがな）」がテンプレートとして記述されている. 
             string description = color[4];
+            // string description = "rubi**" + colorRubi + "**" + color[4];
+            // Debug.Log("rubi: " + description);
 
             colorList.Add(new ColorData(colorName, category, colorCode, description));
         }
