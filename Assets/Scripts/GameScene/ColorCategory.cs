@@ -53,7 +53,7 @@ public class ColorCategory
             }
             // "category","name","url","colorcode","description"
             string[] color = colors[i].Split(",");
-            string colorName = color[1].Split("（")[0];
+            string colorName = color[1].Replace("\"", "").Split("（")[0];
             string colorCode = color[3];
             string description = color[4];
 
