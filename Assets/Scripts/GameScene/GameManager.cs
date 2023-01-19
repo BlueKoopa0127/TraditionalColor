@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         foreach (var (v, i) in choiceColor.Select((v, i) => (v, i)))
         {
             var c = select.GetChild(i).GetComponent<TraditionalColor>();
-            //c.transform.GetChild(0).GetComponent<Text>().enabled = false;
+            c.transform.GetChild(0).GetComponent<Text>().enabled = false;
             c.Change(v);
         }
 
