@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         count = 0;
         rawCount = 0;
         histCount = 0;
+        userPredict = new List<TraditionalColor>();
 
         //色のカテゴリを前のシーンから受け取る
         var category = new ColorCategory(e);
