@@ -5,7 +5,6 @@ using static ColorCategory;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviour
                 var t = a.GetChild(j).GetComponent<TraditionalColor>();
                 t.White();
             }
-            history.GetChild(i + 4).GetComponent<TextMeshProUGUI>().text = "";
+            history.GetChild(i + 4).GetComponent<Text>().text = "";
         }
 
         // Q: makeAnserを直接入れてもいいのか？
@@ -140,7 +139,7 @@ public class GameManager : MonoBehaviour
 
             var hist = history.GetChild(histCount);
             // var histText = historyAns.GetChild(histCount).GetComponent<TextMeshProUGUI>();
-            var histText = history.GetChild(histCount + 4).GetComponent<TextMeshProUGUI>();
+            var histText = history.GetChild(histCount + 4).GetComponent<Text>();
             histText.text = result[0].ToString() + "H" + result[1].ToString() + "B";
             for (int i = 0; i < numberOfAns; i++)
             {

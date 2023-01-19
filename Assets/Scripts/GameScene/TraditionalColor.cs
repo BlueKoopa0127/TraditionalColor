@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static ColorCategory;
-using TMPro;
 
 public class TraditionalColor : MonoBehaviour
 {
     private ColorData colorData;
 
     [SerializeField]
-    private TextMeshProUGUI tmp;
+    private Text tmp;
 
     public void Awake()
     {

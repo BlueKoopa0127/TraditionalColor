@@ -4,7 +4,6 @@ using UnityEngine;
 using static ColorCategory;
 using System;
 using UnityEngine.UI;
-using TMPro;
 
 public class ColorSelect : MonoBehaviour
 {
@@ -20,13 +19,36 @@ public class ColorSelect : MonoBehaviour
             var b = Instantiate(colorSelectButton);
             b.transform.SetParent(transform.GetChild(0), false);
 
-            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+            b.transform.GetChild(0).GetComponent<Text>().text = Translate(Value);
 
             var button = b.GetComponent<Button>();
             button.onClick.AddListener(() => gameManager.SetActive(true));
             button.onClick.AddListener(() => gameManager.GetComponent<GameManager>().Init(Value));
             button.onClick.AddListener(() => gameObject.SetActive(false));
 
+        }
+    }
+
+    private String Translate(EColorCategory e)
+    {
+        switch (e)
+        {
+            case EColorCategory.achromatic:
+                return "白黒系統";
+            case EColorCategory.blue:
+                return "青系統";
+            case EColorCategory.brown:
+                return "茶系統";
+            case EColorCategory.green:
+                return "緑系統";
+            case EColorCategory.red:
+                return "赤系統";
+            case EColorCategory.violet:
+                return "紫系統";
+            case EColorCategory.yellow:
+                return "黄系統";
+            default:
+                return "";
         }
     }
 }
