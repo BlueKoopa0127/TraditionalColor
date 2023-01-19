@@ -40,7 +40,7 @@ public class ColorCategory
             throw new FileNotFoundException("such file is not found\nPath: " + csvFileFullPath);
         }
 
-        Debug.Log("file found");
+        Debug.Log("csv file found");
         colorList = new List<ColorData>();
 
 
@@ -54,15 +54,19 @@ public class ColorCategory
             // "category","name","url","colorcode","description"
             string[] color = colors[i].Split(",");
             string colorName = color[1].Split("（")[0];
-            string colorCategoryStr = color[0];
             string colorCode = color[3];
             string description = color[4];
-            colorList.Add(new ColorData(colorName, EColorCategory.red, colorCode, description));
-            foreach (ColorData _color in colorList)
+
+            string colorCategoryStr = color[0].Replace("\"", "");
+            EColorCategory category = EColorCategory.none;
+            if (TryParse(colorCategoryStr, out category))
             {
-                Debug.Log(_color.colorName);
+                colorList.Add(new ColorData(colorName, category, colorCode, description));
             }
-            break;
+            else
+            {
+                Debug.Log("category cannot parse EColorCategory on:\n" + colors[i]);
+            }
         }
     }
 
