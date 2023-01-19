@@ -66,10 +66,6 @@ public class ColorCategory
         }
 
         Debug.Log("list item count: " + colorList.Count);
-        foreach (var item in colorList)
-        {
-            Debug.Log("rubi: " + item.colorNameRubi);
-        }
     }
 
 
