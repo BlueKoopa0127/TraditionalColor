@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < numberOfHistory; i++)
         {
-            var a = history.GetChild(i);
+            var a = history.GetChild(i * 2 + 1);
             for (int j = 0; j < numberOfAns; j++)
             {
                 Instantiate(selectedColor).transform.parent = a;
@@ -94,13 +94,13 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < numberOfHistory; i++)
         {
-            var a = history.GetChild(i);
+            var a = history.GetChild(i * 2 + 1);
             for (int j = 0; j < numberOfAns; j++)
             {
                 var t = a.GetChild(j).GetComponent<TraditionalColor>();
                 t.White();
             }
-            history.GetChild(i + 4).GetComponent<Text>().text = "";
+            history.GetChild(i * 2).GetComponent<Text>().text = "";
         }
 
         // Q: makeAnserを直接入れてもいいのか？
@@ -137,9 +137,9 @@ public class GameManager : MonoBehaviour
 
 
 
-            var hist = history.GetChild(histCount);
+            var hist = history.GetChild(histCount * 2 + 1);
             // var histText = historyAns.GetChild(histCount).GetComponent<TextMeshProUGUI>();
-            var histText = history.GetChild(histCount + 4).GetComponent<Text>();
+            var histText = history.GetChild(histCount * 2).GetComponent<Text>();
             histText.text = result[0].ToString() + "H" + result[1].ToString() + "B";
             for (int i = 0; i < numberOfAns; i++)
             {
