@@ -1,40 +1,88 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static ColorCategory;
+using TMPro;
 
-public class TraditionalColor
+public class TraditionalColor : MonoBehaviour
 {
-    private readonly string colorName;
-    private readonly EColorCategory colorCategory;
-    private readonly string colorCode;
-    private readonly string derivation;
+    private ColorData colorData;
 
-    public TraditionalColor(string cn = "赤", EColorCategory cc = EColorCategory.red, string cCode = "#ff0000", string d = "")
+    [SerializeField]
+    private TextMeshProUGUI tmp;
+
+    public void Awake()
     {
-        colorName = cn;
-        colorCategory = cc;
-        colorCode = cCode;
-        derivation = d;
+        White();
+    }
+
+    public void Change(TraditionalColor c)
+    {
+        Change(c.GetColorData());
+    }
+
+    public void Change(ColorData c)
+    {
+        colorData = c;
+        Init();
+    }
+
+    private void Init()
+    {
+        var a = GetComponent<Image>();
+        Color b = new Color(0, 0, 0);
+        ColorUtility.TryParseHtmlString(colorData.colorCode, out b);
+        a.color = b;
+        if (tmp != null)
+        {
+            tmp.text = colorData.colorName;
+        }
+    }
+
+    public void White()
+    {
+        colorData = new ColorData("白", EColorCategory.red, "#FFFFFF", "しろ");
+        Init();
+    }
+
+    public ColorData GetColorData()
+    {
+        return colorData;
     }
 
     public string GetColorName()
     {
-        return colorName;
+        return colorData.colorName;
     }
 
     public EColorCategory GetColorCategory()
     {
-        return colorCategory;
+        return colorData.colorCategory;
     }
 
     public string GetColorCode()
     {
-        return colorCode;
+        return colorData.colorCode;
     }
 
     public string GetDerivation()
     {
-        return derivation;
+        return colorData.derivation;
+    }
+
+    public bool Equals(TraditionalColor c)
+    {
+        return GetColorCode().Equals(c.GetColorCode());
+    }
+
+    public void Print()
+    {
+        Debug.Log(colorData.colorName);
+    }
+
+    public void Select()
+    {
+        transform.parent.parent.GetComponent<GameManager>().Select(this);
     }
 }
