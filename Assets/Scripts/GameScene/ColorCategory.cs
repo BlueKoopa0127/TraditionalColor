@@ -28,31 +28,44 @@ public class ColorCategory
         Debug.Log("csv file found");
         colorList = new List<ColorData>();
 
-
         string[] colors = File.ReadAllLines(csvFileFullPath);
         for (int i = 0; i < colors.Length; i++)
         {
+            // if header
             if (i == 0)
             {
                 continue;
             }
-            // "category","name","url","colorcode","description"
-            string[] color = colors[i].Split(",");
-            string colorName = color[1].Replace("\"", "").Split("（")[0];
-            string colorCode = color[3];
-            string description = color[4];
 
+            string[] color = colors[i].Split(",");
             string colorCategoryStr = color[0].Replace("\"", "");
             EColorCategory category = EColorCategory.none;
-            if (TryParse(colorCategoryStr, out category))
-            {
-                colorList.Add(new ColorData(colorName, category, colorCode, description));
-            }
-            else
+
+            if (!TryParse(colorCategoryStr, out category))
             {
                 Debug.Log("category cannot parse EColorCategory on:\n" + colors[i]);
+                continue;
             }
+
+            if (!category.Equals(e))
+            {
+                Debug.Log("not selected category");
+                continue;
+            }
+
+            string[] colorNames = color[1].Replace("\"", "").Split("（");
+            string colorName = colorNames[0];
+            string colorCode = color[3];
+            // string colorRubi = colorNames[1].Substring(0, colorNames[1].Length - 1);
+            // 説明文の冒頭に，「名前（ふりがな）」がテンプレートとして記述されている. 
+            string description = color[4];
+            // string description = "rubi**" + colorRubi + "**" + color[4];
+            // Debug.Log("rubi: " + description);
+
+            colorList.Add(new ColorData(colorName, category, colorCode, description));
         }
+
+        Debug.Log("list item count: " + colorList.Count);
     }
 
 
