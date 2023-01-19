@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private List<List<TraditionalColor>> userHistory = new List<List<TraditionalColor>>();
     private JudgeColor judge;
     [SerializeField]
+    // private Transform select, selected, answer, history, historyAns, end;
     private Transform select, selected, answer, history, end;
 
     private int count = 0;
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
 
 
             var hist = history.GetChild(histCount);
+            // var histText = historyAns.GetChild(histCount).GetComponent<TextMeshProUGUI>();
             var histText = history.GetChild(histCount + 4).GetComponent<TextMeshProUGUI>();
             histText.text = result[0].ToString() + "H" + result[1].ToString() + "B";
             for (int i = 0; i < numberOfAns; i++)
