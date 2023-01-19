@@ -8,7 +8,7 @@ public class ColorCategory
 {
     public enum EColorCategory
     {
-        none = 0, brown, blue, yellow, achromatic, green, red, violet
+        brown, blue, yellow, achromatic, green, red, violet
     }
 
     private List<ColorData> colorList;
@@ -39,7 +39,7 @@ public class ColorCategory
 
             string[] color = colors[i].Split(",");
             string colorCategoryStr = color[0].Replace("\"", "");
-            EColorCategory category = EColorCategory.none;
+            EColorCategory category = EColorCategory.red;
 
             if (!TryParse(colorCategoryStr, out category))
             {
