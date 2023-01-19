@@ -94,7 +94,11 @@ public class GameManager : MonoBehaviour
         // 正誤判定を行う
         // Judge.checkHitandBlow(入力);
         // 結果を返す
-        var result = judge.checkHitAndBlow(userPredict);
+        if (count == numberOfAns)
+        {
+
+
+            var result = judge.checkHitAndBlow(userPredict);
 
             Debug.Log("Hit : " + result[0] + " Brow : " + result[1]);
 
@@ -132,7 +136,7 @@ public class GameManager : MonoBehaviour
         // Finish();
     }
 
-    private List<TraditionalColor> makeAnswer(List<TraditionalColor> choiceColor, int answerLength)
+    private List<ColorData> makeAnswer(List<ColorData> choiceColor, int answerLength)
     {
         for (int i = choiceColor.Count - 1; i > 0; i--)
         {
