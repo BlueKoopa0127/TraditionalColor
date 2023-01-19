@@ -36,21 +36,41 @@ public class ColorCategory
             {
                 continue;
             }
-            // "category","name","url","colorcode","description"
+
             string[] color = colors[i].Split(",");
+            string colorCategoryStr = color[0].Replace("\"", "");
+            EColorCategory category = EColorCategory.none;
+
+            if (!TryParse(colorCategoryStr, out category))
+            {
+                Debug.Log("category cannot parse EColorCategory on:\n" + colors[i]);
+                continue;
+            }
+
+            if (!category.Equals(e))
+            {
+                Debug.Log("equals bad");
+                continue;
+            }
+
+            Debug.Log("color " + i);
+
             string colorName = color[1].Replace("\"", "").Split("（")[0];
             string colorCode = color[3];
             string description = color[4];
 
-            string colorCategoryStr = color[0].Replace("\"", "");
-            EColorCategory category = EColorCategory.none;
-            if (TryParse(colorCategoryStr, out category))
+            Debug.Log("parsed\n" + category + " : " + category.GetType());
+            Debug.Log("category\n" + category);
+
+            colorList.Add(new ColorData(colorName, category, colorCode, description));
+        }
+
+        foreach (var item in colorList)
+        {
+            Debug.Log(item.colorCategory);
+            if (!e.Equals(item.colorCategory))
             {
-                colorList.Add(new ColorData(colorName, category, colorCode, description));
-            }
-            else
-            {
-                Debug.Log("category cannot parse EColorCategory on:\n" + colors[i]);
+                Debug.Log(item.colorName);
             }
         }
     }
