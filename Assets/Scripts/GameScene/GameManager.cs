@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             Instantiate(selectedColor).transform.parent = selected;
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < numberOfAns; i++)
         {
             Instantiate(answerColor).transform.parent = answer;
         }
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         foreach (var (v, i) in choiceColor.Select((v, i) => (v, i)))
         {
             var c = select.GetChild(i).GetComponent<TraditionalColor>();
+            c.transform.GetChild(0).GetComponent<Text>().enabled = false;
             c.Change(v);
         }
 
@@ -155,6 +156,11 @@ public class GameManager : MonoBehaviour
                 for (int i = 0; i < numberOfAns; i++)
                 {
                     answer.GetChild(i).GetComponent<Image>().enabled = true;
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    select.GetChild(i).GetChild(0).GetComponent<Text>().enabled = true;
                 }
                 end.gameObject.SetActive(true);
                 //this.gameObject.SetActive(false);
