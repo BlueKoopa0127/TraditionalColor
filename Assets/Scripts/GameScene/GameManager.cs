@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private int rawCount = 0;
     private const int numberOfAns = 3, numberOfHistory = 4;
     private int histCount = 0;
+    private int defaultWindowWidth, defaultWindowHeight;
 
     public void Select(TraditionalColor t)
     {
@@ -77,6 +78,10 @@ public class GameManager : MonoBehaviour
 
         // Q: makeAnserを直接入れてもいいのか？
         judge = new JudgeColor(ans);
+
+        defaultWindowWidth = Screen.width;
+        defaultWindowHeight = Screen.height;
+        AdjustSizeChildByWindowSize(select);
     }
 
     // Update is called once per frame
@@ -134,6 +139,11 @@ public class GameManager : MonoBehaviour
         // UIで表示
         // 合っていたら終了
         // Finish();
+
+        if (defaultWindowWidth != Screen.width || defaultWindowHeight != Screen.height)
+        {
+            AdjustSizeChildByWindowSize(select);
+        }
     }
 
     private List<ColorData> makeAnswer(List<ColorData> choiceColor, int answerLength)
@@ -149,5 +159,20 @@ public class GameManager : MonoBehaviour
         }
 
         return choiceColor.GetRange(0, answerLength);
+    }
+    private void AdjustSizeChildByWindowSize(Transform parent)
+    {
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            var child = parent.transform.GetChild(i);
+            // Debug.Log(child.GetComponent<RectTransform>());
+            var rectSizeDelta = child.GetComponent<RectTransform>().sizeDelta;
+
+            var rectWidthFromWindow = Screen.width / parent.transform.childCount;
+            rectSizeDelta.x = rectWidthFromWindow;
+            rectSizeDelta.y = rectWidthFromWindow;
+
+            parent.transform.GetChild(i).GetComponent<RectTransform>().sizeDelta = rectSizeDelta;
+        }
     }
 }
