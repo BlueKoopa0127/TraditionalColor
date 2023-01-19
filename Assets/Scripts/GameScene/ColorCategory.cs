@@ -6,8 +6,7 @@ public class ColorCategory
 {
     public enum EColorCategory
     {
-        // Noneが欲しいかも
-        red, brown, green
+        none = 0, brown, blue, yellow, achromatic, green, red, violet
     }
 
     private List<ColorData> colorList;
