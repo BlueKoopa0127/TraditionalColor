@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         foreach (var (v, i) in choiceColor.Select((v, i) => (v, i)))
         {
             var c = select.GetChild(i).GetComponent<TraditionalColor>();
-            c.transform.GetChild(0).GetComponent<Text>().enabled = false;
+            //c.transform.GetChild(0).GetComponent<Text>().enabled = false;
             c.Change(v);
         }
 
@@ -151,8 +151,10 @@ public class GameManager : MonoBehaviour
             }
             histCount++;
 
+
+
             //ゲーム終了
-            if (histCount == numberOfHistory)
+            if (histCount == numberOfHistory || result[0] == 3)
             {
                 for (int i = 0; i < numberOfAns; i++)
                 {
