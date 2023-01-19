@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +8,7 @@ public class ColorCategory
 {
     public enum EColorCategory
     {
-        // Noneが欲しいかも
-        red, brown, green
+        none = 0, brown, blue, yellow, achromatic, green, red, violet
     }
 
     private List<ColorData> colorList;
@@ -28,6 +29,18 @@ public class ColorCategory
         var sangoshu = new ColorData("珊瑚珠色", EColorCategory.red, "#EF454A", "さんごしゅいろ");
 
         colorList = new List<ColorData>() { carmine, benitou, ginshu, kobai, beniaka, sinku, enji, zakuro, shinshu, sangoshu };
+
+        string currentDirPath = Environment.CurrentDirectory;
+        string relativePathFromcurrentDir = @"./Assets/Data/TraditionalColors.csv";
+        string csvFileFullPath =  Path.GetFullPath(relativePathFromcurrentDir, currentDirPath);
+
+        // This text is added only once to the file.
+        if (!File.Exists(csvFileFullPath))
+        {
+            throw new FileNotFoundException("such file is not found");
+        }
+
+        Debug.Log("file found");
     }
 
 
