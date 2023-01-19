@@ -56,16 +56,20 @@ public class ColorCategory
             string[] colorNames = color[1].Replace("\"", "").Split("（");
             string colorName = colorNames[0];
             string colorCode = color[3];
-            // string colorRubi = colorNames[1].Substring(0, colorNames[1].Length - 1);
+            string colorRubi = colorNames[1].Substring(0, colorNames[1].Length - 1);
             // 説明文の冒頭に，「名前（ふりがな）」がテンプレートとして記述されている. 
             string description = color[4];
             // string description = "rubi**" + colorRubi + "**" + color[4];
             // Debug.Log("rubi: " + description);
 
-            colorList.Add(new ColorData(colorName, category, colorCode, description));
+            colorList.Add(new ColorData(colorName, category, colorCode, description, colorRubi));
         }
 
         Debug.Log("list item count: " + colorList.Count);
+        foreach (var item in colorList)
+        {
+            Debug.Log("rubi: " + item.colorNameRubi);
+        }
     }
 
 
