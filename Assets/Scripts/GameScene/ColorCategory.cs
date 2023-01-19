@@ -13,37 +13,24 @@ public class ColorCategory
 
     private List<ColorData> colorList;
 
+    private TextAsset csvFile;
+
     public ColorCategory(EColorCategory e)
     {
-        string currentDirPath = Environment.CurrentDirectory;
-        string relativePathFromcurrentDir = @"./Assets/Data/TraditionalColors.csv";
-        string csvFileFullPath = Path.GetFullPath(relativePathFromcurrentDir, currentDirPath);
-
-        // This text is added only once to the file.
-        if (!File.Exists(csvFileFullPath))
-        {
-            throw new FileNotFoundException("such file is not found\nPath: " + csvFileFullPath);
-        }
-
-        Debug.Log("csv file found");
         colorList = new List<ColorData>();
 
-        string[] colors = File.ReadAllLines(csvFileFullPath);
-        for (int i = 0; i < colors.Length; i++)
-        {
-            // if header
-            if (i == 0)
-            {
-                continue;
-            }
+        csvFile = Resources.Load("TraditionalColors") as TextAsset; // Resouces下のCSV読み込み
+        StringReader reader = new StringReader(csvFile.text);
 
-            string[] color = colors[i].Split(",");
+        while (reader.Peek() != -1)
+        {
+            string[] color = reader.ReadLine().Split(",");
             string colorCategoryStr = color[0].Replace("\"", "");
             EColorCategory category = EColorCategory.red;
 
             if (!TryParse(colorCategoryStr, out category))
             {
-                Debug.Log("category cannot parse EColorCategory on:\n" + colors[i]);
+                Debug.Log("category cannot parse EColorCategory on:");
                 continue;
             }
 
