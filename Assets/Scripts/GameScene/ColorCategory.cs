@@ -28,10 +28,10 @@ public class ColorCategory
         Debug.Log("csv file found");
         colorList = new List<ColorData>();
 
-
         string[] colors = File.ReadAllLines(csvFileFullPath);
         for (int i = 0; i < colors.Length; i++)
         {
+            // if header
             if (i == 0)
             {
                 continue;
@@ -49,30 +49,18 @@ public class ColorCategory
 
             if (!category.Equals(e))
             {
-                Debug.Log("equals bad");
+                Debug.Log("not selected category");
                 continue;
             }
-
-            Debug.Log("color " + i);
 
             string colorName = color[1].Replace("\"", "").Split("（")[0];
             string colorCode = color[3];
             string description = color[4];
 
-            Debug.Log("parsed\n" + category + " : " + category.GetType());
-            Debug.Log("category\n" + category);
-
             colorList.Add(new ColorData(colorName, category, colorCode, description));
         }
 
-        foreach (var item in colorList)
-        {
-            Debug.Log(item.colorCategory);
-            if (!e.Equals(item.colorCategory))
-            {
-                Debug.Log(item.colorName);
-            }
-        }
+        Debug.Log("list item count: " + colorList.Count);
     }
 
 
