@@ -32,7 +32,7 @@ public class ColorCategory
 
         string currentDirPath = Environment.CurrentDirectory;
         string relativePathFromcurrentDir = @"./Assets/Data/TraditionalColors.csv";
-        string csvFileFullPath =  Path.GetFullPath(relativePathFromcurrentDir, currentDirPath);
+        string csvFileFullPath = Path.GetFullPath(relativePathFromcurrentDir, currentDirPath);
 
         // This text is added only once to the file.
         if (!File.Exists(csvFileFullPath))
@@ -41,6 +41,29 @@ public class ColorCategory
         }
 
         Debug.Log("file found");
+        colorList = new List<ColorData>();
+
+
+        string[] colors = File.ReadAllLines(csvFileFullPath);
+        for (int i = 0; i < colors.Length; i++)
+        {
+            if (i == 0)
+            {
+                continue;
+            }
+            // "category","name","url","colorcode","description"
+            string[] color = colors[i].Split(",");
+            string colorName = color[1].Split("（")[0];
+            string colorCategoryStr = color[0];
+            string colorCode = color[3];
+            string description = color[4];
+            colorList.Add(new ColorData(colorName, EColorCategory.red, colorCode, description));
+            foreach (ColorData _color in colorList)
+            {
+                Debug.Log(_color.colorName);
+            }
+            break;
+        }
     }
 
 
