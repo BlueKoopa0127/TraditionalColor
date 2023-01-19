@@ -37,7 +37,7 @@ public class ColorCategory
         // This text is added only once to the file.
         if (!File.Exists(csvFileFullPath))
         {
-            throw new FileNotFoundException("such file is not found");
+            throw new FileNotFoundException("such file is not found\nPath: " + csvFileFullPath);
         }
 
         Debug.Log("file found");
