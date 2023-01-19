@@ -9,35 +9,40 @@ using UnityEngine;
  */
 public class JudgeColor
 {
-  private List<TraditionalColor> answer;
-  
-  JudgeColor(List<TraditionalColor> answer){
-    this.answer = answer;
-  }
+    private List<ColorData> answer;
 
-  public List<string> checkHitAndBlow(List<TraditionalColor> userPredict){
-    // TODO 判断結果のリストの型，新しくenumのやつで作ってもいいかも
-    List<string> result = new List<string>();
-    for (int i = 0; i < userPredict.Count; i++)
+    public JudgeColor(List<ColorData> answer)
     {
-      // 予想した色に対応した答えの場所
-      // TODO 複数のプロパティ？持ってるListって完全一致で探すのかどうか
-      int ansId = answer.FindIndex(n => n == userPredict[i]);
-
-      if (ansId < 0)
-      {
-        result.Add("Miss");
-        continue;
-      }
-
-      if (ansId == i){
-        result.Add("Hit");
-        continue;
-      }
-
-      result.Add("Blow");
+        this.answer = answer;
     }
 
-    return result;
-  }
+    public List<int> checkHitAndBlow(List<TraditionalColor> userPredict)
+    {
+        // [0]HIT, [1]BLOW
+        List<int> result = new List<int>(2) { 0, 0 };
+        for (int i = 0; i < userPredict.Count; i++)
+        {
+            //Debug.Log("start " + i + ":: " + userPredict[i]);
+            // 予想した色に対応した答えの場所      
+            int ansId = answer.FindIndex(item => item.Equals(userPredict[i].GetColorData()));
+
+            //Debug.Log("miss?");
+            if (ansId < 0)
+            {
+                continue;
+            }
+
+            // HIT
+            if (ansId == i)
+            {
+                result[0] += 1;
+                continue;
+            }
+
+            // BLOW
+            result[1] += 1;
+        }
+
+        return result;
+    }
 }
