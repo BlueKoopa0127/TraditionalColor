@@ -81,4 +81,10 @@ public class ColorCategory
         }
         return colorList.GetRange(0, n);
     }
+
+    private bool TryParse(string s, out EColorCategory category)
+    {
+        return Enum.TryParse(s, out category) && Enum.IsDefined(typeof(EColorCategory), category);
+
+    }
 }
