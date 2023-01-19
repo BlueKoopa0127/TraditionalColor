@@ -35,17 +35,17 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            Instantiate(selectColor).transform.parent = select;
+            Instantiate(selectColor, select);
         }
 
         for (int i = 0; i < numberOfAns; i++)
         {
-            Instantiate(selectedColor).transform.parent = selected;
+            Instantiate(selectedColor, selected);
         }
 
         for (int i = 0; i < numberOfAns; i++)
         {
-            Instantiate(answerColor).transform.parent = answer;
+            Instantiate(answerColor, answer);
         }
 
         for (int i = 0; i < numberOfHistory; i++)
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             var a = history.GetChild(i * 2 + 1);
             for (int j = 0; j < numberOfAns; j++)
             {
-                Instantiate(selectedColor).transform.parent = a;
+                Instantiate(selectedColor, a);
             }
         }
     }
