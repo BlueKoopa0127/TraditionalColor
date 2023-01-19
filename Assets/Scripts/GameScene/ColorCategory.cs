@@ -62,7 +62,7 @@ public class ColorCategory
             // string description = "rubi**" + colorRubi + "**" + color[4];
             // Debug.Log("rubi: " + description);
 
-            colorList.Add(new ColorData(colorName, category, colorCode, description, colorRubi));
+            colorList.Add(new ColorData(colorName, category, colorCode, description));
         }
 
         Debug.Log("list item count: " + colorList.Count);
