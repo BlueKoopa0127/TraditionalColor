@@ -23,9 +23,9 @@ public class ColorSelect : MonoBehaviour
             b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
 
             var button = b.GetComponent<Button>();
+            button.onClick.AddListener(() => gameManager.SetActive(true));
+            button.onClick.AddListener(() => gameManager.GetComponent<GameManager>().Init(Value));
             button.onClick.AddListener(() => gameObject.SetActive(false));
-            button.onClick.AddListener(() => gameManager.SetActive(true));
-            button.onClick.AddListener(() => gameManager.SetActive(true));
 
         }
     }

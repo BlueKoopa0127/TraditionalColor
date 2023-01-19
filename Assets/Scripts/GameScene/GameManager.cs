@@ -31,48 +31,76 @@ public class GameManager : MonoBehaviour
         count++;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        for (int i = 0; i < 10; i++)
+        {
+            Instantiate(selectColor).transform.parent = select;
+        }
+
+        for (int i = 0; i < numberOfAns; i++)
+        {
+            Instantiate(selectedColor).transform.parent = selected;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(answerColor).transform.parent = answer;
+        }
+
+        for (int i = 0; i < numberOfHistory; i++)
+        {
+            var a = history.GetChild(i);
+            for (int j = 0; j < numberOfAns; j++)
+            {
+                Instantiate(selectedColor).transform.parent = a;
+            }
+        }
+    }
+
+    // Start is called before the first frame update
+    public void Init(EColorCategory e)
+    {
+        count = 0;
+        rawCount = 0;
+        histCount = 0;
+
         //色のカテゴリを前のシーンから受け取る
-        EColorCategory e = EColorCategory.red;
         var category = new ColorCategory(e);
 
         //カテゴリ内から色を10色ランダムに選択する
         var choiceColor = category.RandomChoice(10);
-        foreach (var v in choiceColor)
+        foreach (var (v, i) in choiceColor.Select((v, i) => (v, i)))
         {
-            var c = Instantiate(selectColor).GetComponent<TraditionalColor>();
-            c.transform.parent = select;
+            var c = select.GetChild(i).GetComponent<TraditionalColor>();
             c.Change(v);
         }
 
         // 選択された色のインスタンスの登録
         for (int i = 0; i < numberOfAns; i++)
         {
-            var t = Instantiate(selectedColor).GetComponent<TraditionalColor>();
-            t.transform.parent = selected;
+            var t = selected.GetChild(i).GetComponent<TraditionalColor>();
             userPredict.Add(t);
         }
 
         //その中から答えを生成する
         var ans = makeAnswer(choiceColor, numberOfAns);
-        foreach (var a in ans)
+        foreach (var (a, i) in ans.Select((v, i) => (v, i)))
         {
-            var t = Instantiate(answerColor).GetComponent<TraditionalColor>();
-            t.transform.parent = answer;
+            var t = answer.GetChild(i).GetComponent<TraditionalColor>();
             t.Change(a);
+            t.GetComponent<Image>().enabled = false;
         }
 
         for (int i = 0; i < numberOfHistory; i++)
         {
             var a = history.GetChild(i);
-            Debug.Log(a.GetComponent<RectTransform>().rect);
             for (int j = 0; j < numberOfAns; j++)
             {
-                var t = Instantiate(selectedColor).transform;
-                t.parent = a;
+                var t = a.GetChild(j).GetComponent<TraditionalColor>();
+                t.White();
             }
+            history.GetChild(i + 4).GetComponent<TextMeshProUGUI>().text = "";
         }
 
         // Q: makeAnserを直接入れてもいいのか？
